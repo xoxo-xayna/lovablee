@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parzon — share moments, reels and stories</title>
+  <meta name="description" content="Parzon is a social feed for posts, stories and reels. Follow friends, like, comment and share." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body class="locked">
+  <div class="auth-loading" id="authLoading"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-3 7-7 0-5-5-6-5-12-3 2-7 5-7 10 0 1 .5 2 1 3-1-.5-1 .5-1 1 0 2.5 2 5 5 5z"/></svg></span></div>
+  <section class="auth" id="auth">
+    <div class="auth-art">
+      <a class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-3 7-7 0-5-5-6-5-12-3 2-7 5-7 10 0 1 .5 2 1 3-1-.5-1 .5-1 1 0 2.5 2 5 5 5z"/></svg></span><span class="logo-text">parzon</span></a>
+      <div>
+        <h2>Your moments, seen.</h2>
+        <p>Post photos and videos, drop stories, scroll reels and follow the people you care about.</p>
+      </div>
+      <div class="auth-chips"><span>Posts</span><span>Stories</span><span>Reels</span><span>Follows</span><span>Likes</span></div>
+    </div>
+    <div class="auth-side">
+      <div class="auth-card" id="authCard" hidden>
+        <a class="logo mobile-logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-3 7-7 0-5-5-6-5-12-3 2-7 5-7 10 0 1 .5 2 1 3-1-.5-1 .5-1 1 0 2.5 2 5 5 5z"/></svg></span><span class="logo-text">parzon</span></a>
+        <h1 id="authTitle">Welcome back</h1>
+        <p class="sub" id="authSub">Sign in to see what your people are sharing.</p>
+        <button type="button" class="google-btn" id="googleBtn">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/></svg>
+          <span id="googleLabel">Sign in with Google</span>
+        </button>
+        <div class="auth-or">or use your email</div>
+        <form class="auth-form" id="authForm">
+          <label class="auth-field only-signup">Your name<input id="authName" autocomplete="name" maxlength="40" placeholder="Ada Okafor" /></label>
+          <label class="auth-field">Email<input id="authEmail" type="email" required autocomplete="email" placeholder="you@example.com" /></label>
+          <label class="auth-field">Password<input id="authPass" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters" /></label>
+          <div class="auth-row only-signin"><button type="button" class="auth-link" id="forgotBtn">Forgot password?</button></div>
+          <button type="submit" class="auth-submit" id="authSubmit">Sign in</button>
+        </form>
+        <div class="auth-note" id="authNote" role="alert"></div>
+        <p class="auth-switch" id="authSwitch"></p>
+      </div>
+    </div>
+  </section>
+  <div class="app">
+    <aside class="sidenav" id="sidenav"></aside>
+    <main class="main" id="view"></main>
+    <aside class="side" id="side"></aside>
+  </div>
+  <nav class="bottomnav" id="bottomnav"></nav>
+  <div class="overlay" id="overlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <input type="file" id="fileCompose" accept="image/*,video/*" hidden />
+  <input type="file" id="fileReel" accept="video/*,image/*" hidden />
+  <input type="file" id="fileStory" accept="image/*" hidden />
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
